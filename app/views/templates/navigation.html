@@ -1,0 +1,32 @@
+<div class="header">
+    <div class="navbar navbar-default navbar-fixed-top navigation" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand nav-first" ng-href="/" ng-click="activateSection('home')"><span class="auth auth-lock"></span> AngularAuth</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="js-navbar-collapse">
+
+                <ul class="nav navbar-nav">
+                    <li ng-if="!active.home"><a href="/" ng-click="activateSection('home')"><span class="auth-home"></span> Home</a>
+                    </li>
+                    <li ng-if="active.home" class="active"><a href="/" ng-click="activateSection('home')"><span class="auth-home"></span> Home</a>
+                    </li>
+                    <li ng-if="!active.add"><a href="add" ng-click="activateSection('add')"><span class="auth-plus"></span> Add Account</a>
+                    </li>
+                    <li ng-if="active.add" class="active"><a href="add" ng-click="activateSection('add')"><span class="auth-plus"></span> Add Account</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<md-content class="main-content">
+    <div layout="row" layout-align="space-around center">
+        <div layout="column" layout-align="space-between start" class="account-creator">
+            <form name="newAccountForm">
+
+
+                <md-input-container>
+                    <label>Account Name</label> <input ng-model="name" required>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Secret(b32)</label> <input ng-model="secret" required pattern="([A-Za-z]|[2-7])+">
+                </md-input-container>
+
+                <md-button ng-show="newAccountForm.$valid" ng-click="addFunction()" class="md-raised md-primary">Send</md-button>
+
+                <!--
+                <input type="button" value="Upload Files" ng-click="interface.uploadFiles()"/>-->
+            </form>
+        </div>
+        <div layout="column" layout-align="space-between start">
+            <!--<div ngf-drop ngf-select ng-model="files" class="drop-box"
+                 ngf-drag-over-class="dragover" ngf-multiple="false" ngf-allow-dir="false"
+                 accept="image/png">Drop pdfs or images here or click to upload</div>-->
+
+        </div>
+    </div>
+</md-content>

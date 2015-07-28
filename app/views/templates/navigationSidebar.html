@@ -1,0 +1,31 @@
+ <md-toolbar class="main-toolbar">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="Settings" ng-click="toggle()">
+                <md-icon md-svg-icon="images/menu.svg"></md-icon>
+            </md-button>
+            <h2>
+                <span>{{currentPage}}</span>
+            </h2>
+            <span flex></span>
+
+
+
+        </div>
+ </md-toolbar>
+<div class="mouseover-zone" ng-mouseenter="open()" md-swipe-right="open()"></div>
+    <md-sidenav class="md-sidenav-left side-nav md-hue-3" md-component-id="side_nav" ng-mouseleave="close()" md-swipe-left="close()">
+
+        <md-content layout-padding class="md-hue-3">
+            <form>
+                <md-input-container>
+                    <md-icon md-svg-src="/images/search.svg" class="md-accent"></md-icon>
+                    <input type="text" id="search" ng-model="search_string" placeholder="Search">
+                </md-input-container>
+            </form>
+            <section layout="column" layout-align="space-around start" class="menu-item">
+                <md-button class="md-accent" href="/" style="width: 100%;margin: 10px;left: -10px;"><span class="glyphicon glyphicon-home icon"></span>Home</md-button>
+                <md-button class="md-accent" href="add" style="width: 100%;margin: 10px;left: -10px;"><span class="glyphicon glyphicon-plus icon"></span>Add Account</md-button>
+            </section>
+        </md-content>
+    </md-sidenav>
+

@@ -1,0 +1,20 @@
+
+<md-content class="main-content">
+<md-grid-list md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="48px" md-gutter-gt-sm="24px" class="grid">
+
+
+    <md-grid-tile md-rowspan="1" md-colspan="1" md-colspan-sm="1" ng-repeat="key in codes | filter:{name: search_string} track by $index">
+        <div class="overlay md-whiteframe-z5" ng-style="{'background-color': key.colorCss}"></div>
+
+
+        <md-grid-tile-footer>
+            <h3>{{key.name}}</h3>
+            <span class="key-code">{{key.oneTimeKey}}</span>
+            <a href ng-click="deleteAccount('{{key.name}}')"><span class="auth-bin2"></span></a>
+        </md-grid-tile-footer>
+
+    </md-grid-tile>
+
+</md-grid-list>
+<div class="counter"><md-progress-linear class="md-warn" md-mode="determinate" value="{{timer}}"></md-progress-linear></div>
+</md-content>

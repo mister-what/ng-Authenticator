@@ -1,0 +1,20 @@
+<md-content class="main-content md-hue-3 grid">
+<div class="login account-creator">
+    <form name="loginform">
+
+
+        <md-input-container>
+            <label>Account Name</label> <input ng-model="username" required>
+        </md-input-container>
+
+        <md-input-container>
+            <label>Password</label> <input ng-model="password" type="password" required>
+        </md-input-container>
+
+        <md-button ng-show="loginform.$valid" ng-click="transformToBase64()" class="md-raised md-primary">Send</md-button>
+
+        <!--
+        <input type="button" value="Upload Files" ng-click="interface.uploadFiles()"/>-->
+    </form>
+</div>
+</md-content>

@@ -1,0 +1,39 @@
+.main-toolbar {
+    position: fixed;
+    top: 0px;
+    z-index: 100;
+}
+.mouseover-zone{
+    position: fixed;
+    height: 100%;
+    top:0;
+    left: 0;
+    width: 100px;
+    opacity: 0;
+    z-index: 20;
+    //background-color: white;
+}
+.side-nav {
+        position: fixed;
+        top: 64px;
+        bottom: 0px;
+        height: 100%;
+        z-index: 90;
+
+}
+.search {
+    color: #B2DFDB;
+
+}
+
+.menu-item {
+    margin-right: 20%;
+    width: 100%;
+}
+
+.search-field {
+    font-size: small;
+    color: black;
+
+}
+
