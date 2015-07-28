@@ -9,7 +9,7 @@ angular.module('gauthApp')
     .service('OtpCalculator', function (generator) {
         this.addAccount = function (name, secret) {
             if (!localStorage.accounts) {
-                localStorage.accounts = "{}";
+                localStorage.accounts = JSON.stringify({DemoAccount: "4563hbacftz46gl"});
             }
             var accounts = JSON.parse(localStorage.accounts);
             accounts[name] = secret;
@@ -17,14 +17,14 @@ angular.module('gauthApp')
         };
         this.getAccount = function (name) {
             if (!localStorage.accounts) {
-                localStorage.accounts = "{}";
+                localStorage.accounts = JSON.stringify({DemoAccount: "4563hbacftz46gl"});
             }
             var accounts = JSON.parse(localStorage.accounts);
             return {name: name, secret: accounts[name]};
         };
         this.deleteAccount = function(name, callback){
             if (!localStorage.accounts) {
-                localStorage.accounts = "{}";
+                localStorage.accounts = JSON.stringify({DemoAccount: "4563hbacftz46gl"});
                 callback("Error");
                 return;
             }
@@ -35,8 +35,8 @@ angular.module('gauthApp')
         };
         this.getAllPasswords = function (callback) {
             if (!localStorage.accounts) {
-                localStorage.accounts = "{}";
-                callback({});
+                localStorage.accounts = JSON.stringify({DemoAccount: "4563hbacftz46gl"});
+                //callback({});
             }
             var accounts = JSON.parse(localStorage.accounts);
             var otps = {};
