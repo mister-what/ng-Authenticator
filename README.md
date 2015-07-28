@@ -1,12 +1,9 @@
-# gauth
-
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.11.1.
+# ng-Authenticator
+Google Authenticator WebApp based on angularjs and localStorage
 
 ## Build & development
 
-Run `grunt` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+Run `grunt build` for building and `grunt serve` for preview.
+After building you may use
+$ cd dist/ && node server.js
+to run a production instance.

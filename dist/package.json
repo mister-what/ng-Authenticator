@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Simple express server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Jonas Winzen",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "cfenv": "^1.0.0",
+    "express": "^4.13.1"
+  }
+}
