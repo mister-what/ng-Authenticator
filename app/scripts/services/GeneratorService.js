@@ -33,7 +33,9 @@ angular.module('gauthApp')
                 var chunk = bits.substr(i, 4);
                 hex = hex + parseInt(chunk, 2).toString(16);
             }
-
+            if(hex.length%2 === 1){
+                hex = "0" + hex;
+            }
             return hex;
         };
 
@@ -45,23 +47,28 @@ angular.module('gauthApp')
         };
 
         this.generateOTP = function(secret, epoch) {
-            var key = base32tohex(secret);
-            // If no time is given, set time as now
-            if(typeof epoch === 'undefined') {
-                epoch = Math.round(new Date().getTime() / 1000.0);
+            try {
+                var key = base32tohex(secret);
+                // If no time is given, set time as now
+                if (typeof epoch === 'undefined') {
+                    epoch = Math.round(new Date().getTime() / 1000.0);
+                }
+                var time = leftpad(dec2hex(Math.floor(epoch / 30)), 16, '0');
+
+                // external library for SHA functionality
+                var hmacObj = new jsSHA(time, "HEX");
+                var hmac = hmacObj.getHMAC(key, "HEX", "SHA-1", "HEX");
+
+                var offset = 0;
+                if (hmac !== 'KEY MUST BE IN BYTE INCREMENTS') {
+                    offset = hex2dec(hmac.substring(hmac.length - 1));
+                }
+
+                var otp = (hex2dec(hmac.substr(offset * 2, 8)) & hex2dec('7fffffff')) + '';
+            } catch(error) {
+                console.log(error);
+                return "0";
             }
-            var time = leftpad(dec2hex(Math.floor(epoch / 30)), 16, '0');
-
-            // external library for SHA functionality
-            var hmacObj = new jsSHA(time, "HEX");
-            var hmac = hmacObj.getHMAC(key, "HEX", "SHA-1", "HEX");
-
-            var offset = 0;
-            if (hmac !== 'KEY MUST BE IN BYTE INCREMENTS') {
-                offset = hex2dec(hmac.substring(hmac.length - 1));
-            }
-
-            var otp = (hex2dec(hmac.substr(offset * 2, 8)) & hex2dec('7fffffff')) + '';
             return (otp).substr(otp.length - 6, 6).toString();
         };
     });
